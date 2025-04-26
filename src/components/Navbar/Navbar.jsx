@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <nav className="w-full bg-base-100 shadow-sm">
+    <nav className="w-full bg-gradient-to-r to-gray-100 bg-blue-300 shadow-sm ">
       <div className="navbar  w-10/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -46,33 +47,33 @@ export const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl">FireBase</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Item 1</a>
+              <Link to={'/'} className="text-lg font-bold ">Home</Link>
             </li>
             <li>
               <details>
-                <summary>Parent</summary>
+                <summary className="text-lg font-bold ">Service</summary>
                 <ul className="p-2">
                   <li>
-                    <a>Submenu 1</a>
+                  <Link to={'*'} className="text-lg font-bold ">Service 1</Link>
                   </li>
                   <li>
-                    <a>Submenu 2</a>
+                  <Link to={'*'} className="text-lg font-bold ">Service 1</Link>
                   </li>
                 </ul>
               </details>
             </li>
             <li>
-              <a>Item 3</a>
+            <Link to={'*'} className="text-lg font-bold ">Home</Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <a className="btn bg-green-400  text-xl">Login</a>
         </div>
       </div>
     </nav>
