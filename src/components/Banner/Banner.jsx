@@ -1,9 +1,14 @@
-import React from 'react'
-import Bannerimages from '../../assets/car.jpg'
+import React from "react";
+import Img from "../../assets/car.jpg";
 const Banner = () => {
   return (
-    <div className='bg-cover bg-no-repeat h-screen' style={{backgroundImage:`url(${Bannerimages})`}}>Banner</div>
-  )
-}
+    <div
+      className="bg-cover bg-no-repeat h-screen w-full"
+      style={{ backgroundImage: `url(${Img})` }}
+    >
+     
+    </div>
+  );
+};
 
-export default Banner
+export default Banner;

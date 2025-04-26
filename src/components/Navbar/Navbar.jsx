@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../ContextAPI/UserContext";
 
 export const Navbar = () => {
+  const { user } = useContext(UserContext);
+
   return (
     <nav className="w-full bg-gradient-to-r to-gray-100 bg-blue-300 shadow-sm ">
       <div className="navbar  w-10/12 mx-auto">
@@ -52,28 +55,45 @@ export const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to={'/'} className="text-lg font-bold ">Home</Link>
+              <Link to={"/"} className="text-lg font-bold ">
+                Home
+              </Link>
             </li>
             <li>
               <details>
                 <summary className="text-lg font-bold ">Service</summary>
                 <ul className="p-2">
                   <li>
-                  <Link to={'*'} className="text-lg font-bold ">Service 1</Link>
+                    <Link to={"*"} className="text-lg font-bold ">
+                      Service 1
+                    </Link>
                   </li>
                   <li>
-                  <Link to={'*'} className="text-lg font-bold ">Service 1</Link>
+                    <Link to={"*"} className="text-lg font-bold ">
+                      Service 1
+                    </Link>
                   </li>
                 </ul>
               </details>
             </li>
             <li>
-            <Link to={'*'} className="text-lg font-bold ">Home</Link>
+              <Link to={user?.status ? "/user":"#"}
+              onClick={(e)=>{
+                if(!user?.status){
+                  e.preventDefault()
+                  alert("Please login first !!!")
+                }
+              }}
+              className="text-lg font-bold ">
+                User
+              </Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn bg-green-400  text-xl">Login</a>
+          <Link to={"/registration"} className={`btn bg-blue-300  text-xl `}>
+          {user?.status ? "✅ Logged In" : "Login"}
+          </Link>
         </div>
       </div>
     </nav>
